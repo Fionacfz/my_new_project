@@ -1,0 +1,99 @@
+[
+  {
+    "description": "All fields valid — standard booking",
+    "firstname": "John",
+    "lastname": "Doe",
+    "totalprice": 150,
+    "depositpaid": true,
+    "checkin": "2025-06-01",
+    "checkout": "2025-06-07",
+    "additionalneeds": "Breakfast",
+    "expectedStatus": 200,
+    "expectBookingId": true
+  },
+  {
+    "description": "No additionalneeds — field is optional",
+    "firstname": "Jane",
+    "lastname": "Smith",
+    "totalprice": 200,
+    "depositpaid": false,
+    "checkin": "2025-07-01",
+    "checkout": "2025-07-05",
+    "additionalneeds": "",
+    "expectedStatus": 200,
+    "expectBookingId": true
+  },
+  {
+    "description": "Negative price — known issue: should be 400",
+    "firstname": "Neg",
+    "lastname": "Price",
+    "totalprice": -50,
+    "depositpaid": true,
+    "checkin": "2025-08-01",
+    "checkout": "2025-08-03",
+    "additionalneeds": "",
+    "expectedStatus": 200,
+    "expectBookingId": true
+  },
+  {
+    "description": "Zero price — lower boundary",
+    "firstname": "Zero",
+    "lastname": "Cost",
+    "totalprice": 0,
+    "depositpaid": false,
+    "checkin": "2025-09-01",
+    "checkout": "2025-09-02",
+    "additionalneeds": "",
+    "expectedStatus": 200,
+    "expectBookingId": true
+  },
+  {
+    "description": "Very large price — upper boundary",
+    "firstname": "Big",
+    "lastname": "Spender",
+    "totalprice": 999999,
+    "depositpaid": true,
+    "checkin": "2025-10-01",
+    "checkout": "2025-10-31",
+    "additionalneeds": "Airport transfer and VIP lounge",
+    "expectedStatus": 200,
+    "expectBookingId": true
+  },
+  {
+    "description": "Special characters in name",
+    "firstname": "O'Brien",
+    "lastname": "García-López",
+    "totalprice": 300,
+    "depositpaid": true,
+    "checkin": "2025-11-01",
+    "checkout": "2025-11-05",
+    "additionalneeds": "Late checkout",
+    "expectedStatus": 200,
+    "expectBookingId": true
+  },
+  {
+    "description": "Same checkin and checkout — zero-length stay",
+    "firstname": "One",
+    "lastname": "Night",
+    "totalprice": 75,
+    "depositpaid": false,
+    "checkin": "2025-12-01",
+    "checkout": "2025-12-01",
+    "additionalneeds": "",
+    "expectedStatus": 200,
+    "expectBookingId": true
+  },
+  {
+    "description": "Invalid checkin date — known issue: stored as NaN",
+    "firstname": "Bad",
+    "lastname": "Date",
+    "totalprice": 100,
+    "depositpaid": true,
+    "checkin": "not-a-date",
+    "checkout": "2025-06-07",
+    "additionalneeds": "",
+    "expectedStatus": 200,
+    "expectBookingId": true,
+    "expectedCheckin": "0NaN-aN-aN"
+  }
+]

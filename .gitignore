@@ -1,0 +1,13 @@
+.env
+web-ui/tests/.auth/
+.features-gen/
+playwright-report/
+test-results/
+node_modules/
+.vscode/
+.mcp.json
+.playwright-mcp/
+.DS_Store
+npm-debug.log*
+api/postman/results/
+.claude/
